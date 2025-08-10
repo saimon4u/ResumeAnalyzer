@@ -1,0 +1,30 @@
+{
+    "name": "Md Mahfuz Ibne Ali Ayon",
+    "email": "bsse1421@iit.du.ac.bd",
+    "phone": "+880 1870904312",
+    "linkedin": "Not found",
+    "github_profiles": [
+        "https://github.com/CodeWithIsmail/BigganPathshala",
+        "https://github.com/CodeWithIsmail/HealthMate",
+        "https://github.com/Mahfuz-Ayon73/SPL-1",
+        "https://github.com/Mahfuz-Ayon73/Smart-Library-System",
+        "https://github.com/samdani91/GomokuAi",
+        "https://github.com/Mahfuz-Ayon73"
+    ],
+    "education": "BSc in Software Engineering, Institute of Information Technology, University of Dhaka 2022–Present CGPA: 3.58 (till 5th semester) Higher Secondary Certificate, Ideal College, Dhanmondi, Dhaka (2021) GPA: 5.00/5.00 Senior Secondary Certificate, Willes Little Flower School and College, Kakrail, Dhaka (2019) GPA:5.00/5.00",
+    "technical_skills": "• Programming Languages: C, C++, Java, Python, Dart • Frameworks & Libraries: React, NodeJS, Express, Flutter, Spring Boot, NumPy, Tailwind CSS • Web Technology: HTML, CSS, JavaScript, PHP • Databases: Oracle SQL, MySQL, MongoDB, Firebase • Tools & Platforms: Git, GitHub, Postman, Render, Wireshark, Docker • Core Concepts: DSA, OOP, SOLID Principle, Design Patterns, SDLC, SRS, Testing",
+    "projects": {
+        "text": "s & Libraries: React, NodeJS, Express, Flutter, Spring Boot, NumPy, Tailwind CSS • Web Technology: HTML, CSS, JavaScript, PHP • Databases: Oracle SQL, MySQL, MongoDB, Firebase • Tools & Platforms: Git, GitHub, Postman, Render, Wireshark, Docker • Core Concepts: DSA, OOP, SOLID Principle, Design Patterns, SDLC, SRS, Testing Projects BigganPathsala (2025) GitHub Link: https://github.com/CodeWithIsmail/BigganPathshala - Interactive science learning and science content-sharing platform with tutorials, blogs, and quizzes. - Collaborated with Team DU_CodeSynthesis at S.N. Bose National Science Olympiad IT Hackathon. Smart Library System (2025) GitHub Link: https://github.com/Mahfuz-Ayon73/Smart-Library-System - A Smart Library Management system with Monolithic and Microservice Approach. - Web App built with NodeJS, Express and MongoDB. GomokuAI (2025) GitHub Link: https://github.com/samdani91/GomokuAi - A desktop AI game built with Java. Minimax Algorithm, Alpha-Beta Pruning - A team project for an AI course. Personal-Health-Tracker (2024) GitHub Link: https://github.com/CodeWithIsmail/HealthMate - Mobile App for Automated Medical Report Scanning using OCR and Health Record Tracking. - A team project of SPL-2 course. Non-Negative Matrix Factorization (2023) GitHub Link: https://github.com/Mahfuz-Ayon73/SPL-1 - A C++ project for performing Matrix Factorization with Lee and Seung Approach, GNMF, RNMF RSNMF and Decision Tree - Individual project for SPL-1 course.",
+        "links": [
+            "https://github.com/CodeWithIsmail/BigganPathshala",
+            "https://github.com/CodeWithIsmail/HealthMate",
+            "https://github.com/Mahfuz-Ayon73/SPL-1",
+            "https://github.com/Mahfuz-Ayon73/Smart-Library-System",
+            "https://github.com/samdani91/GomokuAi",
+            "https://github.com/Mahfuz-Ayon73"
+        ]
+    },
+    "achievements": "and Volunteering - Participated and selected among the top 14 teams out of 50 on SN Bose Science Festival IT Hackathon 2025 - Volunteer in Flutter Frenzy – 2023, IITDU - Executive Member of IITSEC, the student organization of Institute of Information Technology",
+    "experience": "Not found",
+    "reference": "Dr. Ahmedul Kabir Associate Professor Institute of Information Technology, University of Dhaka"
+}

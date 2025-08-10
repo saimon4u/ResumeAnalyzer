@@ -1,0 +1,16 @@
+{
+    "name": "MD SHAKIBUL ISLAM SHAKIB Phone",
+    "email": "bsse1404@iit.du.ac.bd",
+    "phone": "Not found",
+    "linkedin": "Not found",
+    "github_profiles": [],
+    "education": "University of Dhaka - Institute of Information Technology CGPA: 3.84 (till 4th semester) Bachelor of Science in Software Engineering | Expected Date of Graduation: Sep 2026 Notre Dame College | Higher Secondary Certificate Examination | GPA: 5.00 | Year: 2021 Thanahat AU Pilot Govt High | Secondary School Certificate Examination | GPA: 5.00 | Year: 2019",
+    "technical_skills": "Languages C, C++, Java, Python, PHP, JavaScript, HTML/CSS/SCSS Frameworks/ Libraries: React.js, Node.js, Express.js, FastAPI, Spring Boot, Flask, Next.js, Bootstrap, Scikit-learn, Numpy, Pandas, Pygame, graphics.h Tools: VS Code, Eclipse, IntelliJ, Git, GitHub, MySQL, MongoDB, PostgreSQL, Docker, Postman, ThunderClient, NGINX ,Selenium",
+    "projects": {
+        "text": "s/ Libraries: React.js, Node.js, Express.js, FastAPI, Spring Boot, Flask, Next.js, Bootstrap, Scikit-learn, Numpy, Pandas, Pygame, graphics.h Tools: VS Code, Eclipse, IntelliJ, Git, GitHub, MySQL, MongoDB, PostgreSQL, Docker, Postman, ThunderClient, NGINX ,Selenium PROJECTS House Rental App (MERN + Flask + ML): Nov 2024 – Mar 2025 Engineered platform with real-time chat, notifications,maps, rent prediction (XGBoost). Built secure APIs and a dynamic React frontend. Graph Algorithm Visualizer (C/C++):August 2023 – December 2023 illustrated BFS, DFS, Dijkstra, Floyed-Warshall , Bellman Ford etc., with interactive graphics for both user inputs and file inputs. Gomoku AI Game (Pygame) :May 2025 Implemented the Gomoku game (5 in a row) for a 10x10 board that supports player vs. AI mode. Developed and optimized an evaluation function for the Gomoku AI that plays reasonably well maintaining time efficiency. The program uses a minimax algorithm with alpha beta pruning to reduce search time. Library System (FastAPI, MongoDB, Docker): April 2025 - May 2025 Built scalable microservice app using nginx. Garments Inventory(Spring Boot+PostgreSql) May 2025 -Developed maintaining a clean architectural system. DUDS Management SRS: Jan 2024 – June 2024 Led the Software Requirements Specification design for the DUDS Management System, a comprehensive internal management application.",
+        "links": []
+    },
+    "achievements": "& VOLUNTEERING -Finalist, IUT Open API Hackathon (Top 10) - Top 25, SUST Hackathon - JSC & SSC Govt. Scholarships - Volunteer: ITverse, FlutterFrenzy RESEARCH &",
+    "experience": "Not found",
+    "reference": "Not found"
+}
