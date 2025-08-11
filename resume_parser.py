@@ -1,7 +1,11 @@
-import fitz  # PyMuPDF
 import re
 import json
 import os
+
+try:
+    import fitz  # PyMuPDF
+except Exception:
+    fitz = None
 
 def clean_text(text):
     """Clean text by removing excessive whitespace, repeated characters, and common OCR artifacts."""
@@ -13,10 +17,13 @@ def clean_text(text):
 def extract_text_from_pdf(file_path):
     """Extract text from a PDF file using PyMuPDF."""
     try:
+        if fitz is None:
+            raise RuntimeError("PyMuPDF (fitz) not installed. In fish: source .venv/bin/activate.fish && pip install PyMuPDF")
         doc = fitz.open(file_path)
         text = ""
         for page in doc:
             text += page.get_text()
+        doc.close()
         return clean_text(text)
     except Exception as e:
         print(f"Error reading {file_path}: {e}")
@@ -131,16 +138,6 @@ def process_resumes(resume_files, base_dir):
 
 # === USAGE ===
 base_dir = os.path.dirname(os.path.abspath(__file__))
-
-# List of resume files to process
-resume_files = [
-    '1421_Md_Mahfuz_Ibne_Ali_Ayon_CV .pdf',
-    '1401_Abdus_Salam_Islam_Badhon_CV.pdf',
-    '1402_Saimon_Bhuiyan.pdf',
-    '1403_Sheikh_Nahian_CV.pdf',
-    '1404_Md_Shakibul_Islam_Shakib_cV.pdf',
-    '1405_Mustakim_Bin_Mohsin_CV.pdf'
-]
-
-# Process all resumes
+resume_dir = os.path.join(base_dir, "resume")
+resume_files = [f for f in os.listdir(resume_dir) if f.lower().endswith(".pdf")]
 process_resumes(resume_files, base_dir)
