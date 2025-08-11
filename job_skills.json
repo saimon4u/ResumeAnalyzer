@@ -1,712 +1,109 @@
 [
   {
-    "title": "Web Developer",
-    "company": "Planet Education Networks Limited",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1392943&fcatId=8&ln=1",
-    "skills": [
-      "Github",
-      "JavaScript",
-      "MongoDB",
-      "Nodejs",
-      "React | NodeJS | mongoDB | mongoose | JavaScript | Github | Git",
-      "react.js",
-      "Web Developer",
-      "Web Developer/ Web Designer"
-    ],
-    "requirements": [
-      "Solid proficiency in React.js and its core principles (components, state management, hooks, etc.).",
-      "Expert-level knowledge of JavaScript, including ES6+ features.",
-      "Extensive experience with Tailwind CSS for rapid and consistent UI development.",
-      "Familiarity with version control systems, particularly Git.",
-      "Familiarity with testing frameworks (e.g., Jest, React Testing Library).",
-      "Knowledge of other front-end frameworks or libraries.",
-      "Experience with build tools like Webpack or Vite.",
-      "Familiarity with Content Management Systems (CMS) such as WordPress, headless CMS platforms (e.g., Contentful, Strapi, Prismic), or similar."
-    ]
-  },
-  {
-    "title": "SQA Engineer (Manual & Automation)",
-    "company": "Apex Data Management & IT Ltd",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1393360&fcatId=8&ln=1",
-    "skills": [
-      "API Testing",
-      "Appium",
-      "CICD",
-      "Cypress",
-      "JavaScript",
-      "Jmeter",
-      "Selenium",
-      "Software development life cycle (SDLC)",
-      "SQA Engineer",
-      "SQL Queries"
-    ],
-    "requirements": [
-      "Strong proficiency in designing and executing test cases for various applications.",
-      "Experience with automated testing tools and frameworks.",
-      "Experience with automated testing tools e.g. Selenium, Appium, JMeter, Cypress etc.",
-      "Proficiency in writing SQL queries, API, and performance testing.",
-      "Familiarity with CI/CD, containerization, and orchestration tools.",
-      "Knowledge of software development and testing life cycle (SDLC and STLC) and methodologies."
-    ]
-  },
-  {
-    "title": "Junior Web Developer",
-    "company": "Nexdecade Technology (Pvt.) Ltd",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1393278&fcatId=8&ln=1",
-    "skills": [],
-    "requirements": [
-      "Familiarity with RESTful APIs, database design, and Git version control."
-    ]
-  },
-  {
-    "title": "Backend Junior Developer",
-    "company": "Nexdecade Technology (Pvt.) Ltd",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1393273&fcatId=8&ln=1",
-    "skills": [],
-    "requirements": [
-      "Familiarity with RESTful APIs, database design, and Git version control."
-    ]
-  },
-  {
-    "title": "Software Engineer - Cloud Operations",
-    "company": "Fiftytwo Digital Ltd",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1393213&fcatId=8&ln=1",
+    "title": "Senior UI/UX Engineer (Contractual)",
+    "company": "IPDC Finance PLC",
+    "url": "https://jobs.bdjobs.com/jobdetails/?id=1394419&fcatId=8&ln=1",
     "skills": [],
     "requirements": []
   },
   {
-    "title": "Executive, IT cum Data Entry Analyst",
-    "company": "Nexus Pharmaceuticals Ltd.",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1393169&fcatId=8&ln=1",
+    "title": "Full Stack Software Engineer (Contractual)",
+    "company": "IPDC Finance PLC",
+    "url": "https://jobs.bdjobs.com/jobdetails/?id=1394395&fcatId=8&ln=1",
     "skills": [
-      "Communication",
-      "Computer Operator",
-      "Computer skill",
-      "Data Entry (Both English & Bengali)",
-      "Digital Marketing (Social Media Marketing)",
-      "IT Support Service",
-      "Microsoft Excel",
-      "Microsoft Office"
-    ],
-    "requirements": [
-      "Experience with Face book Ads, Google Ads, SEO, email marketing, and analytics tools will be a strong advantage"
-    ]
-  },
-  {
-    "title": "Senior IT Sales & Marketing Executive (Team Lead)",
-    "company": "UpSkill Bangladesh",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1393157&fcatId=8&ln=1",
-    "skills": [
-      "Business Development",
-      "Good communication skills",
-      "Hard Working",
-      "Hardworking and Passionate. Punctual",
-      "Leadership and Good Communication skill.",
-      "Problem solving and decision making",
-      "Quick learner and hard working",
-      "Telecommunication"
-    ],
-    "requirements": [
-      "Familiarity with IT services, government procurement, and client handling",
-      "Experience in CRM tools (e.g., HubSpot, Salesforce) is a plus"
-    ]
-  },
-  {
-    "title": "Assistant Manager; Cloud Admin (Onsite)",
-    "company": "BRACNet Limited",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1393091&fcatId=8&ln=1",
-    "skills": [
-      "Cloud Server",
-      "Google Cloud Platform (GCP)",
-      "RHCSA"
-    ],
-    "requirements": [
-      "Docker & Kubernetes, CI/CD tools, Jenkins and ArgoCD.",
-      "Bash and Python Scripting, Monitoring and Logging"
-    ]
-  },
-  {
-    "title": "Full-Stack developer (.Net Core, Angular)",
-    "company": "Morzaa Tech Limited",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1392786&fcatId=8&ln=1",
-    "skills": [],
-    "requirements": [
-      "Strong knowledge of Object-Oriented Programming, SOLID principles, Design Patterns etc.",
-      "Knowledge of Clean Architecture, CORS, Micro-services",
-      "Develop secure RESTful APIs using ASP.NET Web API • Comfortable with query writing and optimization in MSSQL Server, PostgreSQL.",
-      "Implement API security using Cloud Identity services (IAM), OAuth, and ASP.NET Core Identity",
-      "Solid experience with database design principles, SQL Server and query optimization"
-    ]
-  },
-  {
-    "title": "Betterskill.io - Digital Marketing Executive",
-    "company": "BIZTHRIVE",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1392978&fcatId=8&ln=1",
-    "skills": [
-      "Digital Marketing (Social Media Marketing)"
-    ],
-    "requirements": []
-  },
-  {
-    "title": "Server and DevOps Administrator (Assistant Director)",
-    "company": "Daffodil International University",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1392637&fcatId=8&ln=1",
-    "skills": [],
-    "requirements": [
-      "Hands-on experience with virtualization (VMware/Hyper-V/ Proxmox), containerization, CI/CD pipelines, and cloud integration.",
-      "Scripting proficiency (e.g., Bash, PowerShell, or Python)",
-      "Tools: Docker, Kubernetes, Jenkins, GitLab, GitHub Actions",
-      "Databases: MySQL, PostgreSQL, MSSQL",
-      "Scripting: Bash, PowerShell, Python",
-      "DevOps practices: CI/CD, Infrastructure as Code, automation"
-    ]
-  },
-  {
-    "title": "Assistant Director (Database and Backup Administrator)",
-    "company": "Daffodil International University",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1392649&fcatId=8&ln=1",
-    "skills": [],
-    "requirements": [
-      "Additional Certifications in: PostgreSQL/ MySQL /Cloud Database Management (AWS RDS, Azure SQL, or equivalent)",
-      "Backup and Recovery Expertise with enterprise-grade tools: Veritas NetBackup/ Veeam Backup & Replication/ Symantec Backup Exec.",
-      "Proven hands-on experience in managing enterprise-level databases ( MSSQL) and high-availability (HA) systems.",
-      "Expertise in database management systems: MSSQL, MySQL, PostgreSQL, Oracle",
-      "Strong hands-on experience with backup and recovery tools",
-      "Familiarity with automation tools for database maintenance"
-    ]
-  },
-  {
-    "title": "Cybersecurity Engineer, Technology Onsite (BRAC)",
-    "company": "BRACNet Limited",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1392642&fcatId=8&ln=1",
-    "skills": [
-      "Certified Ethical Hacker Certification (CEH)"
-    ],
-    "requirements": [
-      "CPENT (Certified Penetration Testing Professional)",
-      "Proven expertise in VA/PT using tools such as Nessus, Burp Suite, OWASP ZAP, Nikto, Nmap, Hydra, Metasploit, Kali Linux.",
-      "Strong hands-on experience with CI/CD tools (GitLab, Jenkins, GitHub Actions).",
-      "Proficient in Microsoft Sentinel (or equivalent SIEM tools), including KQL query development and custom rule creation.",
-      "Scripting knowledge (PowerShell, Bash, or Python) for security task automation.",
-      "Strong knowledge of networking protocols (TCP/IP, HTTP/S, DNS, SMTP, VPN, NAT, ACLs).",
-      "Experience with packet analysis, log interpretation, and cloud security (preferably Google Cloud Platform).",
-      "Familiarity with WAF solutions (e.g., Cloud Armor) and cloud-native security controls."
-    ]
-  },
-  {
-    "title": "Officer / Senior Officer - Odoo ERP Implementation",
-    "company": "Mir Group",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1392544&fcatId=8&ln=1",
-    "skills": [
-      "ERP Implementation",
-      "ERP Software"
-    ],
-    "requirements": []
-  },
-  {
-    "title": "Manager, Technology; Ultra-Poor Graduation (UPG)",
-    "company": "BRAC",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1392552&fcatId=8&ln=1",
-    "skills": [],
-    "requirements": []
-  },
-  {
-    "title": "Junior Executive / Executive; Regulatory and Corporate Affairs Department",
-    "company": "BRACNet Limited",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1392529&fcatId=8&ln=1",
-    "skills": [
-      "Excellent communication skill",
-      "Microsoft PowerPoint",
-      "MS Excel",
-      "Regulatory Compliance"
-    ],
-    "requirements": []
-  },
-  {
-    "title": "Officer- Digital Fundraising",
-    "company": "SOS Children`s Village International in Bangladesh",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1392351&fcatId=8&ln=1",
-    "skills": [],
-    "requirements": [
-      "Proficiency in Microsoft Office, email, and the internet is necessary and flexible to work in software.",
-      "Proficiency in CRM (Zoho) management and WordPress management."
-    ]
-  },
-  {
-    "title": "Senior Network Engineer - Customer Care (ISP)",
-    "company": "Telnet Communication Ltd.",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1392492&fcatId=8&ln=1",
-    "skills": [],
-    "requirements": [
-      "Knowledge of IT and network systems, service documentation, and reporting tools."
-    ]
-  },
-  {
-    "title": "Senior Full-Stack Software Engineer(Laravel + React)",
-    "company": "Niduslab",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1392430&fcatId=8&ln=1",
-    "skills": [
-      "AWS",
-      "CICD",
-      "Dockers and Kubernetes",
-      "Ecommerce Development",
-      "Laravel Framework",
-      "NextJs",
-      "Raw PHP 8.1",
-      "react.js",
-      "Relational database systems: MySQL PostgreSQL Oracle",
-      "RESTful API"
-    ],
-    "requirements": [
-      "Expert-level knowledge of modern PHP (8.0+) and object-oriented programming principles",
-      "Proficiency with JavaScript/ES6+, HTML5, CSS3, and modern frontend tooling",
-      "Strong experience with MySQL/PostgreSQL, including performance tuning and complex queries",
-      "Hands-on experience with enterprise-level Laravel applications requiring sophisticated backend solutions",
-      "Production-level experience with complex data relationships, background processing, and real-time features",
-      "eCommerce Development: End-to-end experience with shopping carts, payment processing, inventory management, and order fulfillment systems",
-      "API Integration: Extensive experience integrating third-party services (payment gateways, shipping, CRM, analytics)",
-      "Testing & Quality: Strong background in automated testing (PHPUnit, Jest) and test-driven development",
-      "Experience with Next.js and server-side rendering concepts",
-      "Familiarity with Laravel ecosystem tools",
-      "Knowledge of containerization technologies (Docker)",
-      "Experience with cloud platforms (AWS)",
-      "CI/CD pipeline setup and deployment automation",
-      "Experience with TypeScript",
-      "Knowledge of microservices architecture",
-      "Familiarity with caching strategies (Redis)"
-    ]
-  },
-  {
-    "title": "Manager/Deputy Manager- Sales & Marketing",
-    "company": "BRACNet Limited",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1392355&fcatId=8&ln=1",
-    "skills": [],
-    "requirements": [
-      "Familiarity with CRM tools and sales pipeline management·"
-    ]
-  },
-  {
-    "title": "Data Analyst",
-    "company": "RSGT - Bangladesh",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1392339&fcatId=8&ln=1",
-    "skills": [],
-    "requirements": []
-  },
-  {
-    "title": "Digital Marketing and IT Executive",
-    "company": "Gulshan Clinic Limited (a concern of Unique Group)",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1392335&fcatId=8&ln=1",
-    "skills": [
-      "Graphics Design",
-      "Information technology"
-    ],
-    "requirements": [
-      "Hands-on experience with digital marketing tools like.",
-      "Basic knowledge of IT hardware, networking, and troubleshooting."
-    ]
-  },
-  {
-    "title": "Chief Business Development Officer - Cloud Solutions",
-    "company": "Excel Technologies Ltd.",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1391820&fcatId=8&ln=1",
-    "skills": [
-      "Client Relationship Management",
-      "Decision making capabilities",
-      "Effective communication and interpersonal skills",
-      "Leadership and teamwork",
-      "Proficient in MS Office Applications",
-      "Strong analytical and problem solving ability",
-      "Time Management and Prioritization"
-    ],
-    "requirements": [
-      "Knowledge of cloud security, compliance, and governance frameworks."
-    ]
-  },
-  {
-    "title": "Deputy Head of ICT, ICT Division (AVP / SAVP)",
-    "company": "A reputed Private Commercial Bank",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1391758&fcatId=8&ln=1",
-    "skills": [
-      "Banks & Financial",
-      "Financial/ Banking service",
-      "Managerial Skill",
-      "Project Management"
-    ],
-    "requirements": [
-      "Strong experience with Core Banking Systems, digital platforms, and cybersecurity frameworks is essential."
-    ]
-  },
-  {
-    "title": "Head of Department - Hosting & Infrastructure",
-    "company": "ZenexCloud Ltd.",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1391652&fcatId=8&ln=1",
-    "skills": [],
-    "requirements": []
-  },
-  {
-    "title": "Head of Product Team",
-    "company": "Bdcalling",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1391550&fcatId=8&ln=1",
-    "skills": [
-      "IT Enabled Service",
-      "Software"
-    ],
-    "requirements": [
-      "Strong understanding of software architecture, APIs, databases, and cloud platforms.",
-      "Familiarity with Agile/Scrum methodologies and DevOps practices.",
-      "Familiarity with modern frontend frameworks (e.g., React, Vue) and backend",
-      "frameworks (e.g., Node.js, Django)."
-    ]
-  },
-  {
-    "title": "Sr. Graphic Designer",
-    "company": "ChefOnline",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1390460&fcatId=8&ln=1",
-    "skills": [
-      "Adobe Creative Suite (Illustrator",
-      "Adobe Photoshop",
-      "Canva Pro",
-      "Figma",
-      "InDesign",
-      "UI and UX Design",
-      "UI/UX strategies"
-    ],
-    "requirements": [
-      "Software Proficiency: Advanced skills in Adobe Creative Suite (Photoshop, Illustrator, InDesign), Figma, and Canva Pro."
-    ]
-  },
-  {
-    "title": "Sr. Content Writer",
-    "company": "ChefOnline",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1390445&fcatId=8&ln=1",
-    "skills": [
-      "Content Management",
-      "Creative content writing",
-      "SEO Content Writing"
-    ],
-    "requirements": [
-      "Familiarity with SEO, keyword research, and content audits. Preferred Industry",
-      "Familiarity with web publications and content management systems.",
-      "Experience with keyword analysis and SEO tools."
-    ]
-  },
-  {
-    "title": "SEO Analytic Day/Night",
-    "company": "ChefOnline",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1390492&fcatId=8&ln=1",
-    "skills": [
-      "Search Engine Optimization (SEO)",
-      "SEO Expert",
-      "Technical SEO"
-    ],
-    "requirements": [
-      "Technical Skills: Expertise in SEO tools, digital advertising platforms, and data analytics."
-    ]
-  },
-  {
-    "title": "Manager, Social Media",
-    "company": "ChefOnline",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1390498&fcatId=8&ln=1",
-    "skills": [
-      "Digital Marketing (Social Media Marketing)",
-      "Social Media Manager",
-      "Social Media Marketing (SMM)"
-    ],
-    "requirements": [
-      "Proficiency in digital content strategy, audience engagement tactics, and paid advertising on social platforms."
-    ]
-  },
-  {
-    "title": "Manager, Digital Marketing Day/Night",
-    "company": "ChefOnline",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1391426&fcatId=8&ln=1",
-    "skills": [
-      "Digital Marketing"
-    ],
-    "requirements": []
-  },
-  {
-    "title": "Software Engineer",
-    "company": "This is myself",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1391479&fcatId=8&ln=1",
-    "skills": [
-      "AWS",
-      "Nodejs",
-      "PostgreSQL",
-      "ReactJS",
-      "Tailwind CSS"
-    ],
-    "requirements": [
-      "Proficiency in one or more programming languages (e.g., Java, Python, C++, JavaScript, Go, etc.).",
-      "Experience with software development tools, version control systems (e.g., Git), and CI/CD pipelines.",
-      "Experience with cloud platforms (e.g., AWS, Azure, GCP).",
-      "Familiarity with containerization and orchestration (e.g., Docker, Kubernetes).",
-      "Knowledge of databases (SQL and/or NoSQL).",
-      "Experience with Agile/Scrum methodologies."
-    ]
-  },
-  {
-    "title": "Senior Executive, Full Stack Developer",
-    "company": "Bdcalling",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1391472&fcatId=8&ln=1",
-    "skills": [],
-    "requirements": [
-      "Proficiency in Python, PostgreSQL, XML, JavaScript and templating"
-    ]
-  },
-  {
-    "title": "Executive, Accounts (VAT & Tax)",
-    "company": "MediaSoft Data Systems Ltd.",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1391431&fcatId=8&ln=1",
-    "skills": [
-      "Computer Proficiency",
-      "English Language proficiency",
-      "Mushak",
-      "Proficient in MS Office Applications",
-      "Tax (VAT/ Customs Duty/ Income Tax)",
-      "Tax Return Submission",
-      "VAT Tax Management"
-    ],
-    "requirements": []
-  },
-  {
-    "title": "Full Stack Developer, RANKS ITT",
-    "company": "Rancon Holdings Limited",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1391434&fcatId=8&ln=1",
-    "skills": [
-      "Laravel Framework",
-      "Node.js"
-    ],
-    "requirements": [
-      "Frontend experience with Vue.js or React.",
-      "Solid knowledge in MySQL, Eloquent ORM, REST API.",
-      "Familiarity with Git, API versioning, and deployment processes.",
-      "Good understanding of security practices (XSS, CSRF, SQL Injection).",
-      "Experience in writing API documentation using Postman or Swagger·."
-    ]
-  },
-  {
-    "title": "Flutter Developer, RANKS ITT",
-    "company": "Rancon Holdings Limited",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1391425&fcatId=8&ln=1",
-    "skills": [
-      "Firebase",
-      "Git Version Control System"
-    ],
-    "requirements": [
-      "Strong experience in Firebase, REST API, and third-party SDK integration.",
-      "Solid knowledge of state management (e.g., Provider, Bloc, GetX).",
-      "Proficiency in Git version control."
-    ]
-  },
-  {
-    "title": "আইটি অফিসার",
-    "company": "Naria Unnayan Samity (NUSA).",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1391325&fcatId=8&ln=1",
-    "skills": [],
-    "requirements": []
-  },
-  {
-    "title": "Core Network and Billing Engineer, Softex Communication Limited",
-    "company": "Rancon Holdings Limited",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1391305&fcatId=8&ln=1",
-    "skills": [
-      "Oracle"
-    ],
-    "requirements": [
-      "Strong hands-on experience with Oracle billing system integration, troubleshooting, and reporting.",
-      "Good understanding of telecom billing processes, call detail record (CDR) formats, and reconciliation.Familiarity with telecom signaling protocols (ISDN, SS7, SIP) is a plus.",
-      "Basic knowledge of Linux/Unix systems and network monitoring tools.Strong analytical, communication, and teamwork skills."
-    ]
-  },
-  {
-    "title": "Technical & Desk Support Specialist",
-    "company": "Guardvision Monitoring BD Ltd",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1391216&fcatId=8&ln=1",
-    "skills": [
-      "Accounting and Finance",
-      "Customer Support/ Client Service",
-      "ERP Software",
-      "Hubspot",
-      "IELTS",
-      "Quickbooks",
-      "Remote Desktop Service",
-      "SAP",
-      "xero"
-    ],
-    "requirements": [
-      "Basic knowledge of IT troubleshooting and customer support tools."
-    ]
-  },
-  {
-    "title": "Software Engineer",
-    "company": "Ahsanullah University of Science and Technology",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1391306&fcatId=8&ln=1",
-    "skills": [],
-    "requirements": [
-      "Experience in Oracle (PL/SQL, Procedure, Function)",
-      "Theoretical and practical knowledge of Web Services"
-    ]
-  },
-  {
-    "title": "Backend Developer (PHP, Laravel)",
-    "company": "Red Lime Solutions",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1391227&fcatId=8&ln=1",
-    "skills": [
-      "Firebase",
-      "Laravel",
+      "Flutter",
+      "IONIC",
+      "Java",
       "MySQL",
-      "OOP",
-      "PHP",
-      "REDIS",
-      "RESTful APIs",
-      "SQL Server"
-    ],
-    "requirements": [
-      "Strong understanding of Object-Oriented Programming (OOP) principles and design patterns",
-      "Experience with MySQL, Microsoft SQL Server, Firebase Realtime Database, Redis are preferable",
-      "Strong experience with RESTful APIs and third-party API integrations",
-      "Experience with version control systems such as Git"
-    ]
-  },
-  {
-    "title": "Software Engineer - Service Level 2",
-    "company": "Property Care Services BD (Pvt.) Ltd.",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1391141&fcatId=8&ln=1",
-    "skills": [],
-    "requirements": [
-      "Expertise in multiple programming languages (e.g., ASP.NET, Java, C#, Python, JavaScript).",
-      "Extensive experience with software development frameworks and tools (e.g., .NET, Angular).",
-      "Extensive experience with Windows-based development environments and tools (e.g., Visual Studio, Windows Forms, WPF).",
-      "Advanced experience with front-end technologies (e.g., HTML, CSS, React).",
-      "In-depth knowledge of Restful APls and web services.",
-      "Expertise in automated testing frameworks",
-      "Proficiency in version control systems (e.g., Git).",
-      "Experience with micro services architecture.",
-      "Experience with cloud platforms (e.g., AWS, Azure).",
-      "Advanced knowledge of database management systems (e.g., SQL, NoSQL).",
-      "Strong understanding of continuous integration/continuous deployment (CI/CD) pipelines.",
-      "Knowledge of security best practices in software development.",
-      "Familiarity with DevOps practices and tools.",
-      "Must have strong proficiency in both spoken and written English."
-    ]
-  },
-  {
-    "title": "Software Engineer - Service Level 1",
-    "company": "Property Care Services BD (Pvt.) Ltd.",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1391139&fcatId=8&ln=1",
-    "skills": [],
-    "requirements": [
-      "Proficiency in programming languages such as ASP.NET, C#, Python, or JavaScript.",
-      "Experience with software development frameworks and tools (e.g., .NET, Angular).",
-      "Experience with front-end technologies (e.g., HTML, CSS).",
-      "Experience with Windows-based development environments and tools (e.g., Visual Studio, Windows Forms).",
-      "Experience with cloud platforms (e.g., AWS, Azure).",
-      "Familiarity with version control systems (e.g., Git).",
-      "Strong understanding of object-oriented programming (OOP) principles.",
-      "Understanding of continuous integration/continuous deployment (CI/CD) pipelines.",
-      "Knowledge of RESTful APls and web services.",
-      "Knowledge of database management systems (e.g., SQL, NoSQL).",
-      "Must have strong proficiency in both spoken and written English."
-    ]
-  },
-  {
-    "title": "IT Support Service Executive - Level 2",
-    "company": "Property Care Services BD (Pvt.) Ltd.",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1391117&fcatId=8&ln=1",
-    "skills": [],
-    "requirements": [
-      "Knowledge of the concepts and policy controls of Active Directory",
-      "Knowledge of Service Now and ITIL processes and documentation standards"
-    ]
-  },
-  {
-    "title": "IT Support Service Executive - Service Level 1",
-    "company": "Property Care Services BD (Pvt.) Ltd.",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1391115&fcatId=8&ln=1",
-    "skills": [],
-    "requirements": [
-      "Desktop and notebook hardware, operating systems and desktop software basic troubleshooting and testing of network equipment and components (i.e. Patching cable installation and recovery, installing power leads, Installing/removing/swapping equipment, Locating/identifying network circuits and tagging the demark location) writing business requirements, process flows, functional and technical specifications, test scripts, and end user documentation",
-      "strong proficiency in both spoken and written English."
-    ]
-  },
-  {
-    "title": "Junior Network & Cyber Security Engineer",
-    "company": "Excel Technologies Ltd.",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1390999&fcatId=8&ln=1",
-    "skills": [
-      "Problem Solving Ability",
-      "Proficient in MS Office Applications",
-      "Quick Learning Ability",
-      "Strong analytical ability",
-      "Team working",
-      "Time Management and Prioritization"
+      "Node JS",
+      "Python",
+      "React Native"
     ],
     "requirements": []
   },
   {
-    "title": "Senior Network & Cyber Security Engineer",
+    "title": "Deputy Manager / Assistant Manager (Pre-sales & Product Management)",
     "company": "Excel Technologies Ltd.",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1390975&fcatId=8&ln=1",
+    "url": "https://jobs.bdjobs.com/jobdetails/?id=1393473&fcatId=8&ln=1",
     "skills": [
       "Decision making capabilities",
-      "Documentation and Reporting",
-      "Excellent communication and interpersonal skills.",
-      "Leadership and teamwork",
+      "Excellent communication and presentation skills",
+      "Excellent leadership and interpersonal skills",
       "Proficient in MS Office Applications",
       "Strong analytical and problem solving ability",
+      "Team Work Capability",
       "Time Management and Prioritization"
     ],
     "requirements": []
   },
   {
-    "title": "Manager/Senior Engineer - Security Surveillance",
-    "company": "Excel Technologies Ltd.",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1390965&fcatId=8&ln=1",
-    "skills": [
-      "excellent communication and interpersonal skills",
-      "Leadership and teamwork",
-      "Problem solving and decision making",
-      "Proficient in MS Office Applications",
-      "Quick Learning Ability",
-      "Time Management and Prioritization"
-    ],
+    "title": "নেটওয়ার্ক ইঞ্জিনিয়ার",
+    "company": "Borno Internet",
+    "url": "https://jobs.bdjobs.com/jobdetails/?id=1394256&fcatId=8&ln=1",
+    "skills": [],
+    "requirements": []
+  },
+  {
+    "title": "Senior Full-Stack Developer (PERN)",
+    "company": "Web-AIS Project Office, SECH Bhaban",
+    "url": "https://jobs.bdjobs.com/jobdetails/?id=1394378&fcatId=8&ln=1",
+    "skills": [],
     "requirements": [
-      "Familiarity with vehicle tracking, ANPR, face recognition and Video & AI analytics platforms."
+      "Solid backend knowledge: PostgreSQL, Express.js, Node.js for API design & data management collaboration.",
+      "Experience building & consuming RESTful APIs and handling asynchronous frontend data.",
+      "Comfortable with Git, CI/CD pipelines, Docker/Kubernetes, and deploying on cloud platforms like AWS, Vercel, Heroku."
     ]
   },
   {
-    "title": "Service Engineer - Printing Solutions",
-    "company": "Excel Technologies Ltd.",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1390942&fcatId=8&ln=1",
+    "title": "Sr Software Engineer",
+    "company": "Shakti Foundation for Disadvantaged Women.",
+    "url": "https://jobs.bdjobs.com/jobdetails/?id=1394307&fcatId=8&ln=1",
+    "skills": [],
+    "requirements": [
+      "Proficient in .NET 8, C#, Web API, and Vue.js.",
+      "Deep knowledge of SQL query writing and relational database design using SQL Server.",
+      "Experience in writing optimized, maintainable SQL code including complex joins, nested queries, indexing, and stored procedures.",
+      "Hands-on experience with Azure DevOps, Git version control, CI/CD pipelines, and deploying apps on Azure App Services.",
+      "Experience with Azure Service Bus or similar enterprise messaging systems.",
+      "Strong foundation in object-oriented programming, SOLID principles, and common design patterns.",
+      "Familiarity with microservices architecture.",
+      "Knowledge of security practices in financial application development."
+    ]
+  },
+  {
+    "title": "Officer/Associate Manager, Cyber Threat Intelligence and SOC, Information Security",
+    "company": "BRAC Bank PLC",
+    "url": "https://jobs.bdjobs.com/jobdetails/?id=1394267&fcatId=8&ln=1",
+    "skills": [],
+    "requirements": [
+      "Strong knowledge of current security threats, techniques, and landscape, and a dedicated and self-driven desire to research and learn more about the information security landscape."
+    ]
+  },
+  {
+    "title": "Network Engineer / Senior Network Engineer",
+    "company": "Hashtag Broadband",
+    "url": "https://jobs.bdjobs.com/jobdetails/?id=1394126&fcatId=8&ln=1",
     "skills": [
-      "Excellent communication and interpersonal skills.",
-      "Leadership and teamwork",
-      "Problem solving and decision making",
-      "Proficient in MS Office Applications",
-      "Quick Learning Ability",
-      "Time Management and Prioritization"
+      "ISP"
     ],
     "requirements": []
   },
   {
-    "title": "Experienced Full-Stack Developer (PHP/Laravel)",
-    "company": "Future Digit",
-    "url": "https://jobs.bdjobs.com/jobdetails/?id=1391049&fcatId=8&ln=1",
+    "title": "Executive/Senior Executive (SAP-ABAP)",
+    "company": "A Reputed Group of Companies",
+    "url": "https://jobs.bdjobs.com/jobdetails/?id=1393677&fcatId=8&ln=1",
     "skills": [
-      "API Development",
-      "Full Stack Development",
-      "MVC",
-      "NextJs",
-      "PHP Laravel",
-      "RESTful API"
+      "ABAP"
     ],
+    "requirements": []
+  },
+  {
+    "title": "Team Leader (Full stack Developer)",
+    "company": "NexaCore",
+    "url": "https://jobs.bdjobs.com/jobdetails/?id=1393909&fcatId=8&ln=1",
+    "skills": [],
     "requirements": [
-      "Strong command of PHP, Laravel, and API security",
-      "Experience with OAuth2, JWT, Laravel Passport/Sanctum",
-      "Proficient in SQL and query optimization (MySQL/PostgreSQL)",
-      "Hands-on experience with queues, jobs, and event broadcasting",
-      "Familiarity with microservices architecture and multi-tenancy systems"
+      "In-depth knowledge of modern frontend and backend technologies such as JavaScript or TypeScript, React, Node.js, .NET or Java, and REST APIs"
     ]
   }
 ]
