@@ -1,0 +1,7 @@
+PyMuPDF
+playwright
+fastapi
+uvicorn
+python-multipart
+pydantic
+pdfplumber
