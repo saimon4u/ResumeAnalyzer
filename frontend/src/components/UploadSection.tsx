@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react';
-import { Upload, FileText, AlertCircle } from 'lucide-react';
+import { Upload, FileText, AlertCircle, Loader2 } from 'lucide-react';
 
 interface UploadSectionProps {
   onFileUpload: (file: File) => void;
@@ -8,6 +8,7 @@ interface UploadSectionProps {
 const UploadSection: React.FC<UploadSectionProps> = ({ onFileUpload }) => {
   const [isDragOver, setIsDragOver] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [isUploading, setIsUploading] = useState(false);
 
   const handleDragOver = useCallback((e: React.DragEvent) => {
     e.preventDefault();
@@ -29,7 +30,32 @@ const UploadSection: React.FC<UploadSectionProps> = ({ onFileUpload }) => {
     return null;
   };
 
-  const handleDrop = useCallback((e: React.DragEvent) => {
+  const uploadToBackend = useCallback(async (file: File): Promise<boolean> => {
+    const formData = new FormData();
+    formData.append('file', file);
+
+    try {
+      const response = await fetch('http://localhost:5001/upload_resume', {
+        method: 'POST',
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error(`Upload failed: ${response.status} ${response.statusText}`);
+      }
+
+      // Optional: Parse response if backend returns JSON (e.g., { success: true })
+      const data = await response.json();
+      console.log('Backend response:', data);
+
+      return true;
+    } catch (err) {
+      console.error('Upload error:', err);
+      throw err;
+    }
+  }, []);
+
+  const handleDrop = useCallback(async (e: React.DragEvent) => {
     e.preventDefault();
     setIsDragOver(false);
     setError(null);
@@ -45,10 +71,18 @@ const UploadSection: React.FC<UploadSectionProps> = ({ onFileUpload }) => {
       return;
     }
 
-    onFileUpload(file);
-  }, [onFileUpload]);
+    setIsUploading(true);
+    try {
+      await uploadToBackend(file);
+      onFileUpload(file); // Proceed to scanning/analysis
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Upload failed. Please try again.');
+    } finally {
+      setIsUploading(false);
+    }
+  }, [onFileUpload, uploadToBackend]);
 
-  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileSelect = useCallback(async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
@@ -59,8 +93,16 @@ const UploadSection: React.FC<UploadSectionProps> = ({ onFileUpload }) => {
       return;
     }
 
-    onFileUpload(file);
-  };
+    setIsUploading(true);
+    try {
+      await uploadToBackend(file);
+      onFileUpload(file); // Proceed to scanning/analysis
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Upload failed. Please try again.');
+    } finally {
+      setIsUploading(false);
+    }
+  }, [onFileUpload, uploadToBackend]);
 
   return (
     <div className="max-w-3xl mx-auto py-12 px-4">
@@ -81,6 +123,7 @@ const UploadSection: React.FC<UploadSectionProps> = ({ onFileUpload }) => {
             : 'border-slate-200 bg-white/10 hover:border-indigo-400 hover:bg-indigo-50/10'
           }
           backdrop-blur-lg shadow-lg hover:shadow-xl
+          ${isUploading ? 'opacity-75 cursor-not-allowed' : ''}
         `}
         onDragOver={handleDragOver}
         onDragLeave={handleDragLeave}
@@ -92,19 +135,35 @@ const UploadSection: React.FC<UploadSectionProps> = ({ onFileUpload }) => {
           onChange={handleFileSelect}
           className="absolute inset-0 w-full h-full opacity-0 cursor-pointer"
           id="resume-upload"
+          disabled={isUploading}
         />
         
         <div className="space-y-8">
           <div className="mx-auto w-24 h-24 bg-gradient-to-br from-indigo-600 to-blue-500 rounded-full flex items-center justify-center transform transition-transform duration-300 hover:scale-110">
-            <Upload className="w-12 h-12 text-white animate-pulse" />
+            {isUploading ? (
+              <Loader2 className="w-12 h-12 text-white animate-spin" />
+            ) : (
+              <Upload className="w-12 h-12 text-white animate-pulse" />
+            )}
           </div>
           
           <div>
             <h3 className="text-2xl font-bold text-slate-800 mb-3 animate-fade-in">
-              {isDragOver ? 'Drop your resume here' : 'Drag & drop your resume'}
+              {isUploading 
+                ? 'Uploading your resume...' 
+                : isDragOver 
+                  ? 'Drop your resume here' 
+                  : 'Drag & drop your resume'
+              }
             </h3>
             <p className="text-slate-500 mb-4 text-base">
-              or <label htmlFor="resume-upload" className="text-indigo-600 hover:text-indigo-800 cursor-pointer font-semibold transition-colors duration-200">browse files</label>
+              {!isUploading ? (
+                <>
+                  or <label htmlFor="resume-upload" className="text-indigo-600 hover:text-indigo-800 cursor-pointer font-semibold transition-colors duration-200">browse files</label>
+                </>
+              ) : (
+                <span className="text-indigo-600">Please wait...</span>
+              )}
             </p>
             <div className="flex items-center justify-center space-x-2 text-sm text-slate-400">
               <FileText className="w-5 h-5" />
@@ -113,7 +172,7 @@ const UploadSection: React.FC<UploadSectionProps> = ({ onFileUpload }) => {
           </div>
         </div>
 
-        {isDragOver && (
+        {isDragOver && !isUploading && (
           <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 to-blue-500/20 rounded-3xl flex items-center justify-center animate-pulse">
             <div className="bg-indigo-600 text-white px-6 py-3 rounded-full font-semibold shadow-lg">
               Drop to upload

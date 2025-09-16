@@ -9,6 +9,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from typing import List
 import pdfplumber
+import uvicorn
 
 # Setup logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -18,6 +19,7 @@ BASE_URL = "https://jobs.bdjobs.com/jobsearch.asp?fcatId=8&icatId="
 JOB_DETAILS_BASE = "https://jobs.bdjobs.com/jobdetails/"
 PROJECT_DIR = os.path.dirname(__file__)
 RESUME_OUTPUT_DIR = os.path.join(PROJECT_DIR, 'output')
+RESUME_DIR = os.path.join(PROJECT_DIR, 'resume')
 
 # Skill synonyms
 _SYNONYMS = {
@@ -51,18 +53,14 @@ _SYNONYMS = {
 app = FastAPI()
 
 # CORS
-origins = [
-    "http://localhost:5173",  # your React frontend
-    "http://127.0.0.1:5173",
-]
-
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=origins,        # allow only frontend origin
+    allow_origins=["*"],  
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 # ---------------- Skill Helpers ----------------
 def _normalize_skill_token(tok: str) -> str:
@@ -164,16 +162,22 @@ class ResumeInput(BaseModel):
     projects: str = ""
 
 # ---------------- API Endpoints ----------------
+@app.get("/")
+def read_root():
+    return {"message": "Scraper API is running"}
+
 @app.post("/upload_resume")
 async def upload_resume(file: UploadFile = File(...)):
     if file.content_type != "application/pdf":
         raise HTTPException(status_code=400, detail="Only PDF files are allowed")
 
+    print(file.filename)
+
     # Ensure output directory exists
-    os.makedirs(RESUME_OUTPUT_DIR, exist_ok=True)
+    os.makedirs(RESUME_DIR, exist_ok=True)
     
     # Save the uploaded PDF
-    save_path = os.path.join(RESUME_OUTPUT_DIR, file.filename)
+    save_path = os.path.join(RESUME_DIR, file.filename)
     with open(save_path, "wb") as f:
         f.write(await file.read())
 
@@ -220,3 +224,6 @@ def match_jobs(resume: ResumeInput):
         })
     results.sort(key=lambda x: x["score"], reverse=True)
     return {"resume": resume.name, "matches": results}
+
+if __name__ == "__main__":
+    uvicorn.run("scraper:app", host="127.0.0.1", port=5001, reload=True)
