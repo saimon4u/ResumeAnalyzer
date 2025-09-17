@@ -1,6 +1,5 @@
 from playwright.sync_api import sync_playwright
 import re
-import json
 import logging
 import time
 import os
@@ -60,7 +59,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 
 # ---------------- Skill Helpers ----------------
 def _normalize_skill_token(tok: str) -> str:
@@ -134,14 +132,26 @@ def get_job_links(page, max_jobs=50):
 def get_job_skills_and_requirements(page, job_url):
     skills_list, requirements_list = [], []
     page.goto(job_url, wait_until="domcontentloaded", timeout=60000)
+
+    # Skills
     try:
         page.wait_for_selector('#skills', timeout=5000)
         skills_list = [b.inner_text().strip() for b in page.query_selector_all('#skills >> button')]
-    except: pass
+    except:
+        pass
+
+    # Requirements
     try:
         page.wait_for_selector('#requirements', timeout=5000)
-        requirements_list = [li.inner_text().strip() for li in page.query_selector_all('#requirements >> ul.list-disc > li')]
-    except: pass
+        # Try li and p
+        requirements_list = [el.inner_text().strip() for el in page.query_selector_all('#requirements li, #requirements p')]
+        if not requirements_list:
+            # Fallback: raw text split by newlines
+            req_text = page.query_selector('#requirements').inner_text().strip()
+            requirements_list = [line.strip() for line in req_text.split("\n") if line.strip()]
+    except:
+        pass
+
     return skills_list, requirements_list
 
 def _extract_job_skillset(job: dict) -> set[str]:
@@ -171,8 +181,6 @@ async def upload_resume(file: UploadFile = File(...)):
     if file.content_type != "application/pdf":
         raise HTTPException(status_code=400, detail="Only PDF files are allowed")
 
-    print(file.filename)
-
     # Ensure output directory exists
     os.makedirs(RESUME_DIR, exist_ok=True)
     
@@ -196,8 +204,6 @@ async def upload_resume(file: UploadFile = File(...)):
 
     return match_jobs_input
 
-
-
 @app.post("/match-jobs")
 def match_jobs(resume: ResumeInput):
     resume_skills = _tokenize_to_skills(resume.technical_skills) | _tokenize_to_skills(resume.projects)
@@ -210,7 +216,13 @@ def match_jobs(resume: ResumeInput):
         job_links = get_job_links(page, max_jobs=10)
         for job in job_links:
             skills, requirements = get_job_skills_and_requirements(page, job["url"])
-            job_data.append({"title": job["title"], "company": job["company"], "url": job["url"], "skills": skills, "requirements": requirements})
+            job_data.append({
+                "title": job["title"],
+                "company": job["company"],
+                "url": job["url"],
+                "skills": skills,
+                "requirements": requirements
+            })
             time.sleep(1)
         browser.close()
 
@@ -219,8 +231,12 @@ def match_jobs(resume: ResumeInput):
         js = _extract_job_skillset(job)
         score, overlap = _score_match(resume_data["skills"], js)
         results.append({
-            "title": job["title"], "company": job["company"], "url": job["url"],
-            "score": score, "matched_skills": overlap, "requirements": job.get("requirements", [])
+            "title": job["title"],
+            "company": job["company"],
+            "url": job["url"],
+            "score": score,
+            "matched_skills": overlap,
+            "requirements": job.get("requirements", [])
         })
     results.sort(key=lambda x: x["score"], reverse=True)
     return {"resume": resume.name, "matches": results}
