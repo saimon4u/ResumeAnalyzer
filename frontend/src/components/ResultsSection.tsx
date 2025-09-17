@@ -1,9 +1,25 @@
 import React from 'react';
-import { 
-  Award, TrendingUp, AlertTriangle, Tag, Briefcase, 
-  Mail, Phone, Linkedin, RefreshCw,
-  Star, Target, Lightbulb, Users, MapPin, DollarSign,
-  Clock, ExternalLink, CheckCircle, XCircle, Building
+import {
+  Award,
+  TrendingUp,
+  AlertTriangle,
+  Tag,
+  Briefcase,
+  Mail,
+  Phone,
+  Linkedin,
+  RefreshCw,
+  Star,
+  Target,
+  Lightbulb,
+  Users,
+  MapPin,
+  DollarSign,
+  Clock,
+  ExternalLink,
+  CheckCircle,
+  XCircle,
+  Building,
 } from 'lucide-react';
 import type { ResumeAnalysis, JobMatch } from '../App';
 
@@ -75,10 +91,7 @@ const ResultsSection: React.FC<ResultsSectionProps> = ({ results, fileName, onSt
 
       <div className="mb-4">
         <div className={`w-full h-2 bg-slate-200 rounded-full overflow-hidden`}>
-          <div 
-            className={`h-full transition-all duration-500 ${getAlignmentColor(job.alignmentScore)}`}
-            style={{ width: `${job.alignmentScore}%` }}
-          ></div>
+          <div className={`h-full transition-all duration-500 ${getAlignmentColor(job.alignmentScore)}`} style={{ width: `${job.alignmentScore}%` }}></div>
         </div>
       </div>
 
@@ -123,15 +136,20 @@ const ResultsSection: React.FC<ResultsSectionProps> = ({ results, fileName, onSt
         </ul>
       </div>
 
-      <button className="w-full bg-slate-800 hover:bg-slate-900 text-white py-3 px-4 rounded-xl transition-colors duration-200 flex items-center justify-center space-x-2">
+      <a
+        href={job.url || '#'} // Safe fallback in case url is undefined
+        target="_blank"
+        rel="noopener noreferrer"
+        className="w-full bg-slate-800 hover:bg-slate-900 text-white py-3 px-4 rounded-xl transition-colors duration-200 flex items-center justify-center space-x-2"
+      >
         <span>View Full Job</span>
         <ExternalLink className="w-4 h-4" />
-      </button>
+      </a>
     </div>
   );
+
   return (
     <div className="max-w-6xl mx-auto space-y-8">
-      {/* Header */}
       <div className="bg-white/70 backdrop-blur-md rounded-2xl p-8 border border-white/20 shadow-xl">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
           <div>
@@ -147,7 +165,6 @@ const ResultsSection: React.FC<ResultsSectionProps> = ({ results, fileName, onSt
           </button>
         </div>
 
-        {/* Overall Score */}
         <div className="flex items-center justify-center">
           <div className={`relative w-32 h-32 rounded-full border-8 ${getScoreColor(results.score)} flex items-center justify-center`}>
             <div className="text-center">
@@ -155,15 +172,12 @@ const ResultsSection: React.FC<ResultsSectionProps> = ({ results, fileName, onSt
               <div className="text-sm font-medium">/ 100</div>
             </div>
             <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2">
-              <span className={`px-3 py-1 rounded-full text-sm font-medium ${getScoreColor(results.score)}`}>
-                {getScoreLabel(results.score)}
-              </span>
+              <span className={`px-3 py-1 rounded-full text-sm font-medium ${getScoreColor(results.score)}`}>{getScoreLabel(results.score)}</span>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Job Matches Section */}
       <div className="bg-white/70 backdrop-blur-md rounded-2xl p-8 border border-white/20 shadow-xl">
         <div className="flex items-center space-x-3 mb-6">
           <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-600 rounded-full flex items-center justify-center">
@@ -183,9 +197,7 @@ const ResultsSection: React.FC<ResultsSectionProps> = ({ results, fileName, onSt
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* Left Column */}
         <div className="space-y-6">
-          {/* Strengths */}
           <div className="bg-green-50/80 backdrop-blur-sm rounded-2xl p-6 border border-green-200">
             <div className="flex items-center space-x-3 mb-4">
               <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center">
@@ -203,7 +215,6 @@ const ResultsSection: React.FC<ResultsSectionProps> = ({ results, fileName, onSt
             </ul>
           </div>
 
-          {/* Contact Information */}
           <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
             <div className="flex items-center space-x-3 mb-4">
               <div className="w-10 h-10 bg-blue-500 rounded-full flex items-center justify-center">
@@ -215,7 +226,7 @@ const ResultsSection: React.FC<ResultsSectionProps> = ({ results, fileName, onSt
               {[
                 { icon: Mail, label: 'Email', present: results.contact.email },
                 { icon: Phone, label: 'Phone', present: results.contact.phone },
-                { icon: Linkedin, label: 'LinkedIn', present: results.contact.linkedin }
+                { icon: Linkedin, label: 'LinkedIn', present: results.contact.linkedin },
               ].map((contact, index) => (
                 <div key={index} className="flex items-center justify-between">
                   <div className="flex items-center space-x-2">
@@ -229,9 +240,7 @@ const ResultsSection: React.FC<ResultsSectionProps> = ({ results, fileName, onSt
           </div>
         </div>
 
-        {/* Middle Column */}
         <div className="space-y-6">
-          {/* Improvements */}
           <div className="bg-amber-50/80 backdrop-blur-sm rounded-2xl p-6 border border-amber-200">
             <div className="flex items-center space-x-3 mb-4">
               <div className="w-10 h-10 bg-amber-500 rounded-full flex items-center justify-center">
@@ -249,7 +258,6 @@ const ResultsSection: React.FC<ResultsSectionProps> = ({ results, fileName, onSt
             </ul>
           </div>
 
-          {/* Experience */}
           <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
             <div className="flex items-center space-x-3 mb-4">
               <div className="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center">
@@ -264,13 +272,15 @@ const ResultsSection: React.FC<ResultsSectionProps> = ({ results, fileName, onSt
               </div>
               <div className="flex justify-between items-center">
                 <span className="text-slate-600">Level</span>
-                <span className={`px-3 py-1 rounded-full text-sm font-medium ${
-                  results.experience.level === 'Senior' 
-                    ? 'bg-green-100 text-green-800' 
-                    : results.experience.level === 'Mid-level'
+                <span
+                  className={`px-3 py-1 rounded-full text-sm font-medium ${
+                    results.experience.level === 'Senior'
+                      ? 'bg-green-100 text-green-800'
+                      : results.experience.level === 'Mid-level'
                       ? 'bg-blue-100 text-blue-800'
                       : 'bg-gray-100 text-gray-800'
-                }`}>
+                  }`}
+                >
                   {results.experience.level}
                 </span>
               </div>
@@ -282,9 +292,7 @@ const ResultsSection: React.FC<ResultsSectionProps> = ({ results, fileName, onSt
           </div>
         </div>
 
-        {/* Right Column */}
         <div className="space-y-6">
-          {/* Keywords */}
           <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
             <div className="flex items-center space-x-3 mb-4">
               <div className="w-10 h-10 bg-indigo-500 rounded-full flex items-center justify-center">
@@ -294,17 +302,13 @@ const ResultsSection: React.FC<ResultsSectionProps> = ({ results, fileName, onSt
             </div>
             <div className="flex flex-wrap gap-2">
               {results.keywords.map((keyword, index) => (
-                <span 
-                  key={index}
-                  className="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium"
-                >
+                <span key={index} className="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium">
                   {keyword}
                 </span>
               ))}
             </div>
           </div>
 
-          {/* Technical Skills */}
           <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
             <div className="flex items-center space-x-3 mb-4">
               <div className="w-10 h-10 bg-cyan-500 rounded-full flex items-center justify-center">
@@ -317,17 +321,13 @@ const ResultsSection: React.FC<ResultsSectionProps> = ({ results, fileName, onSt
                 <div key={index} className="flex items-center justify-between">
                   <span className="text-slate-700">{skill}</span>
                   <div className="w-16 h-2 bg-slate-200 rounded-full">
-                    <div 
-                      className="h-2 bg-cyan-500 rounded-full"
-                      style={{ width: `${Math.random() * 40 + 60}%` }}
-                    ></div>
+                    <div className="h-2 bg-cyan-500 rounded-full" style={{ width: `${Math.random() * 40 + 60}%` }}></div>
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          {/* Soft Skills */}
           <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
             <div className="flex items-center space-x-3 mb-4">
               <div className="w-10 h-10 bg-pink-500 rounded-full flex items-center justify-center">
@@ -337,10 +337,7 @@ const ResultsSection: React.FC<ResultsSectionProps> = ({ results, fileName, onSt
             </div>
             <div className="flex flex-wrap gap-2">
               {results.skills.soft.map((skill, index) => (
-                <span 
-                  key={index}
-                  className="px-3 py-1 bg-pink-100 text-pink-700 rounded-full text-sm font-medium"
-                >
+                <span key={index} className="px-3 py-1 bg-pink-100 text-pink-700 rounded-full text-sm font-medium">
                   {skill}
                 </span>
               ))}
@@ -349,7 +346,6 @@ const ResultsSection: React.FC<ResultsSectionProps> = ({ results, fileName, onSt
         </div>
       </div>
 
-      {/* Action Items */}
       <div className="bg-slate-800 text-white rounded-2xl p-8">
         <div className="flex items-center space-x-3 mb-6">
           <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-indigo-600 rounded-full flex items-center justify-center">
