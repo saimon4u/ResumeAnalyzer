@@ -5,3 +5,4 @@ uvicorn
 python-multipart
 pydantic
 pdfplumber
+google-generativeai
