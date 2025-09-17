@@ -1,3 +1,4 @@
+// UploadSection.tsx
 import React, { useCallback, useState } from 'react';
 import { Upload, FileText, AlertCircle, Loader2 } from 'lucide-react';
 

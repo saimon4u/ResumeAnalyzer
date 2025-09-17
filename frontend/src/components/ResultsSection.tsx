@@ -1,3 +1,4 @@
+// ResultsSection.tsx
 import React from 'react';
 import {
   Award,
@@ -136,8 +137,23 @@ const ResultsSection: React.FC<ResultsSectionProps> = ({ results, fileName, onSt
         </ul>
       </div>
 
+      <div className="mb-4">
+        <h5 className="font-semibold text-amber-700 mb-2 flex items-center">
+          <Lightbulb className="w-4 h-4 mr-1" />
+          Improvement Advice
+        </h5>
+        <ul className="space-y-2">
+          {job.improvementAdvice.map((advice, index) => (
+            <li key={index} className="text-sm text-slate-600 flex items-start">
+              <span className="w-1 h-1 bg-amber-400 rounded-full mt-2 mr-2 flex-shrink-0"></span>
+              {advice}
+            </li>
+          ))}
+        </ul>
+      </div>
+
       <a
-        href={job.url || '#'} // Safe fallback in case url is undefined
+        href={job.url || '#'}
         target="_blank"
         rel="noopener noreferrer"
         className="w-full bg-slate-800 hover:bg-slate-900 text-white py-3 px-4 rounded-xl transition-colors duration-200 flex items-center justify-center space-x-2"

@@ -1,3 +1,4 @@
+// App.tsx
 import React, { useState } from 'react';
 import UploadSection from './components/UploadSection';
 import ScanningLoader from './components/ScanningLoader';
@@ -40,6 +41,7 @@ export interface JobMatch {
   description: string;
   requirements: string[];
   url: string;
+  improvementAdvice: string[];
 }
 
 type AppState = 'upload' | 'scanning' | 'results' | 'error';
@@ -136,12 +138,13 @@ function App() {
           salary: 'Unknown', // Placeholder
           type: 'Full-time', // Placeholder
           alignmentScore: Math.round(job.score * 100),
-          requiredSkills: job.skills || [],
-          matchingSkills: job.matched_skills,
-          missingSkills: (job.skills || []).filter((skill: string) => !job.matched_skills.includes(skill)),
+          requiredSkills: job.required_skills || [],
+          matchingSkills: job.matched_skills || [],
+          missingSkills: job.missing_skills || [],
           description: 'No description available', // Placeholder
-          requirements: job.requirements,
+          requirements: job.requirements || [],
           url: job.url,
+          improvementAdvice: job.improvement_advice || [],
         })),
       };
 

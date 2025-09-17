@@ -1,3 +1,4 @@
+# scraper.py (backend)
 from playwright.sync_api import sync_playwright
 import re
 import logging
@@ -9,6 +10,11 @@ from pydantic import BaseModel
 from typing import List
 import pdfplumber
 import uvicorn
+import google.generativeai as genai
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
 
 # Setup logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
@@ -54,7 +60,7 @@ app = FastAPI()
 # CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -81,78 +87,90 @@ def _tokenize_to_skills(value) -> set[str]:
 
 # ---------------- Resume Parsing ----------------
 def parse_pdf_resume(file_path: str) -> dict:
-    text = ""
-    with pdfplumber.open(file_path) as pdf:
-        for page in pdf.pages:
-            text += page.extract_text() + "\n"
+    try:
+        text = ""
+        with pdfplumber.open(file_path) as pdf:
+            for page in pdf.pages:
+                page_text = page.extract_text()
+                if page_text:
+                    text += page_text + "\n"
 
-    lines = [line.strip() for line in text.splitlines() if line.strip()]
-    name = lines[0] if lines else "Unknown"
+        lines = [line.strip() for line in text.splitlines() if line.strip()]
+        name = lines[0] if lines else "Unknown"
 
-    skills_section = ""
-    match = re.search(r"(?:Skills|Technical Skills)\s*[:\-]?\s*(.+?)(?:\n\n|\n[A-Z][a-z]|$)", text, re.IGNORECASE | re.DOTALL)
-    if match:
-        skills_section = match.group(1)
-    technical_skills = [s.strip() for s in re.split(r"[,\|;\n]+", skills_section) if s.strip()]
+        skills_section = ""
+        match = re.search(r"(?:Skills|Technical Skills)\s*[:\-]?\s*(.+?)(?:\n\n|\n[A-Z][a-z]|$)", text, re.IGNORECASE | re.DOTALL)
+        if match:
+            skills_section = match.group(1)
+        technical_skills = [s.strip() for s in re.split(r"[,\|;\n]+", skills_section) if s.strip()]
 
-    projects_section = ""
-    match_proj = re.search(r"(?:Projects|Project Experience)\s*[:\-]?\s*(.+?)(?:\n\n|\n[A-Z][a-z]|$)", text, re.IGNORECASE | re.DOTALL)
-    if match_proj:
-        projects_section = match_proj.group(1).strip()
+        projects_section = ""
+        match_proj = re.search(r"(?:Projects|Project Experience)\s*[:\-]?\s*(.+?)(?:\n\n|\n[A-Z][a-z]|$)", text, re.IGNORECASE | re.DOTALL)
+        if match_proj:
+            projects_section = match_proj.group(1).strip()
 
-    return {"name": name, "technical_skills": technical_skills, "projects": projects_section}
+        return {"name": name, "technical_skills": technical_skills, "projects": projects_section}
+    except Exception as e:
+        logging.error(f"Error parsing resume: {e}")
+        raise HTTPException(status_code=500, detail=f"Failed to parse resume: {str(e)}")
 
 # ---------------- Job Scraping ----------------
 def get_job_links(page, max_jobs=50):
-    job_links = []
-    seen = set()
-    page.goto(BASE_URL, wait_until="domcontentloaded", timeout=60000)
+    try:
+        job_links = []
+        seen = set()
+        page.goto(BASE_URL, wait_until="domcontentloaded", timeout=60000)
 
-    while len(job_links) < max_jobs:
-        page.wait_for_selector('div.sout-jobs-wrapper', timeout=20000)
-        job_wrappers = page.query_selector_all('div.sout-jobs-wrapper')
-        for wrapper in job_wrappers:
-            if len(job_links) >= max_jobs:
+        while len(job_links) < max_jobs:
+            page.wait_for_selector('div.sout-jobs-wrapper', timeout=20000)
+            job_wrappers = page.query_selector_all('div.sout-jobs-wrapper')
+            for wrapper in job_wrappers:
+                if len(job_links) >= max_jobs:
+                    break
+                onclick = wrapper.get_attribute('onclick') or ''
+                match = re.search(r"DivOpen\('([^']+)',\d+,'([^']+)','([^']+)'\)", onclick)
+                if match:
+                    params, title, company = match.group(1), match.group(2), match.group(3)
+                    url = f"{JOB_DETAILS_BASE}?{params}"
+                    if url not in seen:
+                        seen.add(url)
+                        job_links.append({'url': url, 'title': title, 'company': company})
+            next_button = page.query_selector('a.prevnext:has-text("Next »")')
+            if not next_button:
                 break
-            onclick = wrapper.get_attribute('onclick') or ''
-            match = re.search(r"DivOpen\('([^']+)',\d+,'([^']+)','([^']+)'\)", onclick)
-            if match:
-                params, title, company = match.group(1), match.group(2), match.group(3)
-                url = f"{JOB_DETAILS_BASE}?{params}"
-                if url not in seen:
-                    seen.add(url)
-                    job_links.append({'url': url, 'title': title, 'company': company})
-        next_button = page.query_selector('a.prevnext:has-text("Next »")')
-        if not next_button:
-            break
-        next_button.click()
-        time.sleep(2)
-    return job_links[:max_jobs]
+            next_button.click()
+            time.sleep(2)
+        return job_links[:max_jobs]
+    except Exception as e:
+        logging.error(f"Error scraping job links: {e}")
+        raise HTTPException(status_code=500, detail=f"Failed to scrape job links: {str(e)}")
 
 def get_job_skills_and_requirements(page, job_url):
-    skills_list, requirements_list = [], []
-    page.goto(job_url, wait_until="domcontentloaded", timeout=60000)
-
-    # Skills
     try:
-        page.wait_for_selector('#skills', timeout=5000)
-        skills_list = [b.inner_text().strip() for b in page.query_selector_all('#skills >> button')]
-    except:
-        pass
+        skills_list, requirements_list = [], []
+        page.goto(job_url, wait_until="domcontentloaded", timeout=60000)
 
-    # Requirements
-    try:
-        page.wait_for_selector('#requirements', timeout=5000)
-        # Try li and p
-        requirements_list = [el.inner_text().strip() for el in page.query_selector_all('#requirements li, #requirements p')]
-        if not requirements_list:
-            # Fallback: raw text split by newlines
-            req_text = page.query_selector('#requirements').inner_text().strip()
-            requirements_list = [line.strip() for line in req_text.split("\n") if line.strip()]
-    except:
-        pass
+        # Skills
+        try:
+            page.wait_for_selector('#skills', timeout=5000)
+            skills_list = [b.inner_text().strip() for b in page.query_selector_all('#skills >> button')]
+        except:
+            logging.info(f"No skills found for {job_url}")
 
-    return skills_list, requirements_list
+        # Requirements
+        try:
+            page.wait_for_selector('#requirements', timeout=5000)
+            requirements_list = [el.inner_text().strip() for el in page.query_selector_all('#requirements li, #requirements p')]
+            if not requirements_list:
+                req_text = page.query_selector('#requirements').inner_text().strip()
+                requirements_list = [line.strip() for line in req_text.split("\n") if line.strip()]
+        except:
+            logging.info(f"No requirements found for {job_url}")
+
+        return skills_list, requirements_list
+    except Exception as e:
+        logging.error(f"Error scraping job details for {job_url}: {e}")
+        return [], []
 
 def _extract_job_skillset(job: dict) -> set[str]:
     skills = _tokenize_to_skills(job.get("skills", []))
@@ -178,68 +196,106 @@ def read_root():
 
 @app.post("/upload_resume")
 async def upload_resume(file: UploadFile = File(...)):
-    if file.content_type != "application/pdf":
-        raise HTTPException(status_code=400, detail="Only PDF files are allowed")
+    try:
+        if file.content_type != "application/pdf":
+            raise HTTPException(status_code=400, detail="Only PDF files are allowed")
 
-    # Ensure output directory exists
-    os.makedirs(RESUME_DIR, exist_ok=True)
-    
-    # Save the uploaded PDF
-    save_path = os.path.join(RESUME_DIR, file.filename)
-    with open(save_path, "wb") as f:
-        f.write(await file.read())
+        # Ensure output directory exists
+        os.makedirs(RESUME_DIR, exist_ok=True)
+        
+        # Save the uploaded PDF
+        save_path = os.path.join(RESUME_DIR, file.filename)
+        with open(save_path, "wb") as f:
+            f.write(await file.read())
 
-    # Parse resume
-    resume_data = parse_pdf_resume(save_path)
+        # Parse resume
+        resume_data = parse_pdf_resume(save_path)
 
-    # Convert parsed skills to match /match-jobs input
-    normalized_skills = list(_tokenize_to_skills(resume_data["technical_skills"]) | _tokenize_to_skills(resume_data["projects"]))
+        # Convert parsed skills to match /match-jobs input
+        normalized_skills = list(_tokenize_to_skills(resume_data["technical_skills"]) | _tokenize_to_skills(resume_data["projects"]))
 
-    # Return in the exact format expected by /match-jobs
-    match_jobs_input = {
-        "name": resume_data["name"],
-        "technical_skills": normalized_skills,
-        "projects": resume_data["projects"]
-    }
+        # Return in the exact format expected by /match-jobs
+        match_jobs_input = {
+            "name": resume_data["name"],
+            "technical_skills": normalized_skills,
+            "projects": resume_data["projects"]
+        }
 
-    return match_jobs_input
+        return match_jobs_input
+    except Exception as e:
+        logging.error(f"Error in upload_resume: {e}")
+        raise HTTPException(status_code=500, detail=f"Upload failed: {str(e)}")
 
 @app.post("/match-jobs")
 def match_jobs(resume: ResumeInput):
-    resume_skills = _tokenize_to_skills(resume.technical_skills) | _tokenize_to_skills(resume.projects)
-    resume_data = {"name": resume.name, "skills": resume_skills}
+    try:
+        resume_skills = _tokenize_to_skills(resume.technical_skills) | _tokenize_to_skills(resume.projects)
+        resume_data = {"name": resume.name, "skills": resume_skills}
 
-    job_data = []
-    with sync_playwright() as p:
-        browser = p.firefox.launch(headless=True)
-        page = browser.new_page(user_agent="Mozilla/5.0")
-        job_links = get_job_links(page, max_jobs=10)
-        for job in job_links:
-            skills, requirements = get_job_skills_and_requirements(page, job["url"])
-            job_data.append({
+        job_data = []
+        with sync_playwright() as p:
+            browser = p.firefox.launch(headless=True)
+            page = browser.new_page(user_agent="Mozilla/5.0")
+            job_links = get_job_links(page, max_jobs=10)
+            for job in job_links:
+                skills, requirements = get_job_skills_and_requirements(page, job["url"])
+                job_data.append({
+                    "title": job["title"],
+                    "company": job["company"],
+                    "url": job["url"],
+                    "skills": skills,
+                    "requirements": requirements
+                })
+                time.sleep(1)
+            browser.close()
+
+        results = []
+        api_key = os.getenv("GEMINI_API_KEY")
+        if not api_key:
+            logging.warning("GEMINI_API_KEY not set in .env file. Improvement advice will be empty.")
+
+        for job in job_data:
+            js = _extract_job_skillset(job)
+            score, overlap = _score_match(resume_data["skills"], js)
+            missing_skills = list(js - set(overlap))
+            advice = []
+            if api_key:
+                try:
+                    genai.configure(api_key=api_key)
+                    model = genai.GenerativeModel('gemini-1.5-flash')
+                    prompt = (
+                        f"User's resume skills: {', '.join(resume_skills)}\n\n"
+                        f"Job title: {job['title']}\n"
+                        f"Company: {job['company']}\n"
+                        f"Required skills extracted: {', '.join(js)}\n"
+                        f"Matched skills: {', '.join(overlap)}\n"
+                        f"Missing skills: {', '.join(missing_skills)}\n"
+                        f"Job requirements: {', '.join(job.get('requirements', []))}\n\n"
+                        "Provide 3-5 specific pieces of improvement advice to help the user's resume better match this job. "
+                        "Focus on how to acquire or highlight the missing skills."
+                    )
+                    response = model.generate_content(prompt)
+                    advice = [line.strip() for line in response.text.split('\n') if line.strip() and not line.startswith('#')]
+                    advice = advice[:5]  # Limit to 5 pieces of advice
+                except Exception as e:
+                    logging.error(f"Gemini API error for job {job['title']}: {e}")
+                    advice = []
+            results.append({
                 "title": job["title"],
                 "company": job["company"],
                 "url": job["url"],
-                "skills": skills,
-                "requirements": requirements
+                "score": score,
+                "matched_skills": overlap,
+                "missing_skills": missing_skills,
+                "required_skills": list(js),
+                "requirements": job.get("requirements", []),
+                "improvement_advice": advice
             })
-            time.sleep(1)
-        browser.close()
-
-    results = []
-    for job in job_data:
-        js = _extract_job_skillset(job)
-        score, overlap = _score_match(resume_data["skills"], js)
-        results.append({
-            "title": job["title"],
-            "company": job["company"],
-            "url": job["url"],
-            "score": score,
-            "matched_skills": overlap,
-            "requirements": job.get("requirements", [])
-        })
-    results.sort(key=lambda x: x["score"], reverse=True)
-    return {"resume": resume.name, "matches": results}
+        results.sort(key=lambda x: x["score"], reverse=True)
+        return {"resume": resume.name, "matches": results}
+    except Exception as e:
+        logging.error(f"Error in match_jobs: {e}")
+        raise HTTPException(status_code=500, detail=f"Match jobs failed: {str(e)}")
 
 if __name__ == "__main__":
     uvicorn.run("scraper:app", host="127.0.0.1", port=5001, reload=True)
